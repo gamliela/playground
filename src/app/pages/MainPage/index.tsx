@@ -1,22 +1,21 @@
 import * as React from "react";
 import {observer} from "mobx-react";
-import style from "./style.scss";
-import {AppManager} from "../../AppManager";
+import FirebaseNodeModel from "../../shared_modules/firebase-mobx/FirebaseNodeModel";
+import {database} from "../../shared_modules/firebase-config";
+import {STATUS} from "../../shared_modules/firebase-mobx/constants";
 
-export interface MainPageProps {
-    appManager: AppManager;
-}
+const node = new FirebaseNodeModel(database, "/MyRoot/Node1/Node12/");
 
 @observer
-export default class MainPage extends React.Component<MainPageProps> {
+export default class MainPage extends React.Component<void> {
     render() {
-        const appManager = this.props.appManager;
+        const val = (typeof(node.value) === "object") ? JSON.stringify(node.value) : node.value;
         return (
             <div>
-                <h1 className={style.header}>
-                    Hello World!
-                </h1>
-                <span>version: {appManager.version}</span>
+                <div>status: {STATUS[node.status]}</div>
+                <div>value type: {typeof(node.value)}</div>
+                <div>value: {val}</div>
+                <div>error: {node.error}</div>
             </div>
         );
     }
