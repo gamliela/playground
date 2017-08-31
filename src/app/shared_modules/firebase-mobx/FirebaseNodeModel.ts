@@ -22,8 +22,11 @@ export default class FirebaseNodeModel<T> extends FirebaseModel {
 
     @action.bound
     destroy() {
-        this.status = STATUS.DESTROYED;
-        this.ref.off('value', this.listener);
+        if (this.listener) {
+            this.status = STATUS.DESTROYED;
+            this.ref.off('value', this.listener);
+            this.listener = null;
+        }
     }
 
 }
