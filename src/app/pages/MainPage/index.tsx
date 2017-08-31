@@ -19,11 +19,11 @@ export default class MainPage extends React.Component<{}> {
                 <div>status: {STATUS[node.status]}</div>
                 <div>value type: {typeof(node.value)}</div>
                 <div>value: {val}</div>
-                <div>error: {node.error}</div>
+                <div>error: {node.error && node.error.message}</div>
                 <div>VALUES</div>
                 <div>status: {STATUS[newNodes.status]}</div>
                 <div>value: {vals}</div>
-                <div>error: {newNodes.error}</div>
+                <div>error: {newNodes.error && newNodes.error.message}</div>
             </div>
         );
     }
