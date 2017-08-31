@@ -4,3 +4,10 @@ node_modules
 build
 npm-debug.log
 debug.log
+
+# do not commit auto-generated files (js, map, css)
+/src/**/*.js
+/src/**/*.css
+/src/**/*.map
+/config/typescript.config.js
+/config/typescript.config.js.map

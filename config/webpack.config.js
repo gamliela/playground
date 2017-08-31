@@ -44,7 +44,7 @@ const config = {
         ]
     },
     resolve: {
-        extensions: ['.js', '.ts', '.tsx']
+        extensions: ['.tsx', '.ts', '.js']
     },
     plugins: [
         new HtmlWebpackPlugin({

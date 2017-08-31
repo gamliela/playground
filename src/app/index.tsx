@@ -11,5 +11,5 @@ useStrict(true);
 const appManager: AppManager = new AppManager();
 
 ReactDOM.render(
-    <MainPage appManager={appManager}/>,
+    <MainPage/>,
     document.getElementById('app-root'));
