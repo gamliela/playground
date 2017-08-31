@@ -23,7 +23,7 @@ export default class FirebaseNewNodesModel<T> extends FirebaseModel {
             this.values.push(snapshot.val());
             this.prevKey = snapshot.key;
         } else
-            console.warn('child_added was triggered for non-last element, but this behaviour is not yet supported');
+            console.error('child_added was triggered for non-last element, but this behaviour is not yet supported');
     }
 
     @action.bound
